@@ -1,0 +1,33 @@
+.card  {
+    height: 400px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    background-color: antiquewhite;
+}
+
+.header {
+background-color: wheat}
+}
+
+img {width: 80%;
+}
+.col img {
+    height: 200px;
+    width: 200px;
+}
+.container {
+    background-color: wheat;
+}
+
+a {
+
+}
+
+button {
+    border-radius: 50px
+}
+button:hover {
+    background-color: black;
+    color:white;
+    border: white;
+}
