@@ -9,34 +9,46 @@ let photo = ``
 
 buttons[0].addEventListener(`click`, function () {
 
-    ingrd.push(inputs[1].value)
+    ingrd.push(inputs[1].value.toLowerCase())
     console.log(ingrd)
     inputs[1].value = ``
 })
 
 buttons[1].addEventListener(`click`, function () {
-
     fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
             photo = data.meals[0].strMealThumb
+
+            recipePreview.innerHTML = `
+        <div class= "row">
+                <div class="col">
+                <img src="${data.meals[0].strMealThumb}" alt="">
+                </div>
+        </div>
+        `
+
         })
 
+
+})
+
+buttons[2].addEventListener(`click`, function () {
+
     recipe = {
-        tilte: inputs[0].value,
-        description: inputs[2].value,
+        tilte: inputs[0].value.toLowerCase(),
+        description: inputs[2].value.toLowerCase(),
         calories: inputs[3].value,
         ingredients: ingrd,
         image: photo
     }
-    console.log(recipe)
-
 
     if (recipe.tilte.length === 0 || recipe.description === 0 || recipe.calories === 0 || recipe.ingredients.length < 3) {
-        error.innerText = `Tilte, Description and Calories Can't Be Empty
-         Also Recipe should have at least 3 ingredients
+        error.innerText = `Tilte, Description and Calories Can't Be Empty Also Recipe should have at least 3 ingredients
         `
+
+        
     } else {
         error.innerText = ``
         recipePreview.innerHTML = ``
@@ -50,7 +62,7 @@ buttons[1].addEventListener(`click`, function () {
                     </div>
             </div>
             <div class="row">
-            <p>${recipe.ingredients}</p>
+            <p>${recipe.ingredients.join(`, `)}</p>
             <p>Calories: ${recipe.calories}</p>
             </div>
             `
@@ -61,9 +73,8 @@ buttons[1].addEventListener(`click`, function () {
 
 
 
-buttons[2].addEventListener(`click`, function () {
+buttons[3].addEventListener(`click`, function () {
     allRecipes.push(recipe)
-    console.log(allRecipes)
     ingrd = []
     recipe = {}
     inputs[0].value = ``
