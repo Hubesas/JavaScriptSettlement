@@ -72,15 +72,27 @@ buttons[2].addEventListener(`click`, function () {
 
 
 
-
 buttons[3].addEventListener(`click`, function () {
-    allRecipes.push(recipe)
+
+    let allRecipes = localStorage.getItem("recipe");
+
+    if (allRecipes) {
+        allRecipes = JSON.parse(allRecipes);
+        allRecipes.push(recipe)
+        localStorage.setItem("recipe", JSON.stringify(allRecipes));
+    } else {
+        allRecipes.push(recipe)
+        localStorage.setItem("recipe", JSON.stringify(allRecipes));
+    }
+
+
     ingrd = []
     recipe = {}
     inputs[0].value = ``
     inputs[2].value = ``
     inputs[3].value = ``
-    localStorage.setItem(`recipe`, JSON.stringify(allRecipes))
+
+    // localStorage.setItem(`recipe`, JSON.stringify(allRecipes))
 })
 
 
