@@ -12,15 +12,15 @@ function appendRecipes () {
     recipesList.innerHTML = ``
     allRecipes[0].forEach(item => {
         recipesList.innerHTML += `
-         <div class="col">
+         <div class="box m-2 border border-danger p-4">
          <div class="row">
                 <img src="${item[0].image}" alt="">
          </div>
          <div class="row">
-                <h4>${item[0].tilte}</h4>
-                <p>${item[0].description}</p>
-                <p>${item[0].ingredients}</p>
-                <p>${item[0].calories}</p>
+                <h4 style="text-align: center" >${item[0].tilte}</h4>
+                <p>Description: ${item[0].description}</p>
+                <p>Ingredients: ${item[0].ingredients}</p>
+                <p>Calories: ${item[0].calories}</p>
          </div>
             </div>
         `

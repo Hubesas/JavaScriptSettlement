@@ -6,6 +6,15 @@
     border-radius: 50px;
 }
 
+.box {
+    min-height: 200px;
+    min-width: 200px;
+}
+
+.border {
+    border: 2px solid brown;
+}
+
 .header {
 background-color: wheat;
 }
