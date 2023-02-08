@@ -14,6 +14,10 @@ height: 370px;
     width: 80%;
 }
 
+input {
+    border-radius: 5px;
+}
+
 .border {
     border: 2px solid brown;
 }
