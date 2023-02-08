@@ -5,11 +5,12 @@ const error = document.querySelector(`#error`)
 let recipe = []
 let ingrd = []
 let allRecipes = []
-let photo = []
+let photo = ``
 
 buttons[0].addEventListener(`click`, function () {
 
     ingrd.push(inputs[1].value)
+    console.log(ingrd)
     inputs[1].value = ``
 })
 
@@ -22,34 +23,35 @@ buttons[1].addEventListener(`click`, function () {
             photo = data.meals[0].strMealThumb
         })
 
-    recipe = [{
+    recipe = {
         tilte: inputs[0].value,
         description: inputs[2].value,
         calories: inputs[3].value,
         ingredients: ingrd,
         image: photo
-    }]
+    }
+    console.log(recipe)
 
 
-    if (recipe[0].tilte.length === 0 || recipe[0].description === 0 || recipe[0].calories === 0 || recipe[0].ingredients.length < 3) {
+    if (recipe.tilte.length === 0 || recipe.description === 0 || recipe.calories === 0 || recipe.ingredients.length < 3) {
         error.innerText = `Tilte, Description and Calories Can't Be Empty
-    //     Also Recipe should have at least 3 ingredients
-    //     `
+         Also Recipe should have at least 3 ingredients
+        `
     } else {
         error.innerText = ``
         recipePreview.innerHTML = ``
 
         recipePreview.innerHTML = `
             <div class="row">
-                <div class="col"><img src="${recipe[0].image}" alt=""></div>
+                <div class="col"><img src="${recipe.image}" alt=""></div>
                 <div class="col">
-                        <h5>${recipe[0].tilte}</h5>
-                        <p>Description: ${recipe[0].description}</p>
+                        <h5>${recipe.tilte}</h5>
+                        <p>Description: ${recipe.description}</p>
                     </div>
             </div>
             <div class="row">
-            <p>${recipe[0].ingredients}</p>
-            <p>Calories: ${recipe[0].calories}</p>
+            <p>${recipe.ingredients}</p>
+            <p>Calories: ${recipe.calories}</p>
             </div>
             `
     }
@@ -61,8 +63,9 @@ buttons[1].addEventListener(`click`, function () {
 
 buttons[2].addEventListener(`click`, function () {
     allRecipes.push(recipe)
+    console.log(allRecipes)
     ingrd = []
-    recipe = []
+    recipe = {}
     inputs[0].value = ``
     inputs[2].value = ``
     inputs[3].value = ``
