@@ -58,11 +58,11 @@ buttons[2].addEventListener(`click`, function () {
                 <div class="col"><img src="${recipe.image}" alt=""></div>
                 <div class="col">
                         <h5>${recipe.tilte}</h5>
-                        <p>Description: ${recipe.description}</p>
+                        <p class="modernWay" >Description: ${recipe.description}</p>
                     </div>
             </div>
             <div class="row">
-            <p>${recipe.ingredients.join(`, `)}</p>
+            <p class="" > ${recipe.ingredients.join(`, `)}</p>
             <p>Calories: ${recipe.calories}</p>
             </div>
             `
