@@ -16,7 +16,7 @@ function appendRecipes (recipes) {
          </div>
          <div class="row ">
                 <h4 style="text-align: center" >${item.tilte}</h4>
-                <p>Description: ${item.description}</p>
+                <p class="modernWay" >Description: ${item.description}</p>
                 <p>Ingredients: ${item.ingredients.join(`, `)}</p>
                 <p>Calories: ${item.calories}</p>
          </div>
